@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ICT Club Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #003300, #00cc66);
+      color: white;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav h1 {
+      font-size: 24px;
+      color: #00ff99;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00ff99;
+    }
+
+    section {
+      padding: 60px 20px;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #00ff99;
+      animation: fadeInDown 1s ease;
+    }
+
+    /* Home Section */
+    #home img {
+      max-width: 200px;
+      margin: 20px auto;
+      display: block;
+      animation: fadeInDown 2s ease;
+    }
+
+    /* Learn More Section */
+    .button button {
+      background-color: #1e90ff;
+      color: white;
+      padding: 14px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.3s;
+      width: 300px;
+    }
+
+    .button button:hover {
+      background-color: #00ff99;
+      color: black;
+    }
+
+    #answer {
+      margin-top: 20px;
+      font-size: 18px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 15px;
+      border-radius: 10px;
+      display: none;
+    }
+
+    /* Contact Section */
+    form {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 20px rgba(0, 255, 128, 0.3);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    input:focus, textarea:focus {
+      background: rgba(255, 255, 255, 0.2);
+      outline: none;
+      box-shadow: 0 0 8px #00ff99;
+    }
+
+    button[type="submit"] {
+      background-color: #00ff99;
+      color: black;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: black;
+      color: #00ff99;
+    }
+
+    .info {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>ICT Club</h1>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#learn">Learn More</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home">
+    <h2>Welcome to ICT Club</h2>
+    <img src="logo1.jpg" alt="Logo 1" />
+    <img src="logo2.jpg" alt="Logo 2" />
+    <p>This website is designed to introduce and explore ICT — empowering students with knowledge in Information and Communication Technology.</p>
+  </section>
+
+  <!-- Learn More Section -->
+  <section id="learn">
+    <h2>Learn More About ICT</h2>
+    <div class="button">
+      <button onclick="showAnswer('whatIsICT')">1. What is ICT?</button>
+      <button onclick="showAnswer('components')">2. Main Components of ICT?</button>
+      <button onclick="showAnswer('impactEdu')">3. ICT Impact in Education</button>
+      <button onclick="showAnswer('business')">4. Role of ICT in Business</button>
+      <button onclick="showAnswer('digitalLiteracy')">5. What is Digital Literacy?</button>
+      <button onclick="showAnswer('future')">6. Future of ICT</button>
+    </div>
+    <div id="answer"></div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/yourformid" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="text" name="subject" placeholder="Subject" />
+      <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="info">
+      <p>📍 Oromia Development Association Special Boarding School, Bishoftu</p>
+      <p>📧 odaasbs2017@gmail.com</p>
+      <p>📱 +251956570171</p>
+    </div>
+  </section>
+
+  <script>
+    const answers = {
+      whatIsICT: "ICT stands for Information and Communication Technology — tools and systems used to manage, send, and store information.",
+      components: "Main components of ICT: hardware, software, networks, and data.",
+      impactEdu: "ICT enhances learning through digital tools, virtual classrooms, and access to global knowledge.",
+      business: "In business, ICT improves communication, productivity, and efficiency across operations.",
+      digitalLiteracy: "Digital literacy means knowing how to use digital tools, apps, and online platforms safely and effectively.",
+      future: "Future ICT trends: AI, IoT, 5G, blockchain, and cybersecurity."
+    };
+
+    function showAnswer(key) {
+      const box = document.getElementById('answer');
+      box.innerText = answers[key] || "No answer available.";
+      box.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
